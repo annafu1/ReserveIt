@@ -1,0 +1,9 @@
+{
+  "reserveItApp": {
+    "FoodMenuItem": {
+      "null": "",
+      "Lunch": "Lunch",
+      "Dinner": "Dinner"
+    }
+  }
+}

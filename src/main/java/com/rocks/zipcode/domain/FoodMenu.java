@@ -1,6 +1,7 @@
 package com.rocks.zipcode.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.rocks.zipcode.domain.enumeration.FoodMenuItem;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,8 +29,9 @@ public class FoodMenu implements Serializable {
     @Column(name = "item_name")
     private String itemName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "food_menu_item")
-    private String foodMenuItem;
+    private FoodMenuItem foodMenuItem;
 
     @Column(name = "quantity_of_item")
     private Integer quantityOfItem;
@@ -73,16 +75,16 @@ public class FoodMenu implements Serializable {
         this.itemName = itemName;
     }
 
-    public String getFoodMenuItem() {
+    public FoodMenuItem getFoodMenuItem() {
         return this.foodMenuItem;
     }
 
-    public FoodMenu foodMenuItem(String foodMenuItem) {
+    public FoodMenu foodMenuItem(FoodMenuItem foodMenuItem) {
         this.setFoodMenuItem(foodMenuItem);
         return this;
     }
 
-    public void setFoodMenuItem(String foodMenuItem) {
+    public void setFoodMenuItem(FoodMenuItem foodMenuItem) {
         this.foodMenuItem = foodMenuItem;
     }
 

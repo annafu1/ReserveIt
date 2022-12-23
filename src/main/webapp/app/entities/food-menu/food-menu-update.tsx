@@ -9,6 +9,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IFoodMenu } from 'app/shared/model/food-menu.model';
+import { FoodMenuItem } from 'app/shared/model/enumerations/food-menu-item.model';
 import { getEntity, updateEntity, createEntity, reset } from './food-menu.reducer';
 
 export const FoodMenuUpdate = () => {
@@ -23,6 +24,7 @@ export const FoodMenuUpdate = () => {
   const loading = useAppSelector(state => state.foodMenu.loading);
   const updating = useAppSelector(state => state.foodMenu.updating);
   const updateSuccess = useAppSelector(state => state.foodMenu.updateSuccess);
+  const foodMenuItemValues = Object.keys(FoodMenuItem);
 
   const handleClose = () => {
     navigate('/food-menu');
@@ -59,6 +61,7 @@ export const FoodMenuUpdate = () => {
     isNew
       ? {}
       : {
+          foodMenuItem: 'Lunch',
           ...foodMenuEntity,
         };
 
@@ -99,8 +102,14 @@ export const FoodMenuUpdate = () => {
                 id="food-menu-foodMenuItem"
                 name="foodMenuItem"
                 data-cy="foodMenuItem"
-                type="text"
-              />
+                type="select"
+              >
+                {foodMenuItemValues.map(foodMenuItem => (
+                  <option value={foodMenuItem} key={foodMenuItem}>
+                    {translate('reserveItApp.FoodMenuItem.' + foodMenuItem)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 label={translate('reserveItApp.foodMenu.quantityOfItem')}
                 id="food-menu-quantityOfItem"

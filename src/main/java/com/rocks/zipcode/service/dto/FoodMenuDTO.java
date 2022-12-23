@@ -1,5 +1,6 @@
 package com.rocks.zipcode.service.dto;
 
+import com.rocks.zipcode.domain.enumeration.FoodMenuItem;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class FoodMenuDTO implements Serializable {
 
     private String itemName;
 
-    private String foodMenuItem;
+    private FoodMenuItem foodMenuItem;
 
     private Integer quantityOfItem;
 
@@ -37,11 +38,11 @@ public class FoodMenuDTO implements Serializable {
         this.itemName = itemName;
     }
 
-    public String getFoodMenuItem() {
+    public FoodMenuItem getFoodMenuItem() {
         return foodMenuItem;
     }
 
-    public void setFoodMenuItem(String foodMenuItem) {
+    public void setFoodMenuItem(FoodMenuItem foodMenuItem) {
         this.foodMenuItem = foodMenuItem;
     }
 
