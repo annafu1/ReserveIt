@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.rocks.zipcode.IntegrationTest;
 import com.rocks.zipcode.domain.FoodMenu;
+import com.rocks.zipcode.domain.enumeration.FoodMenuItem;
 import com.rocks.zipcode.repository.FoodMenuRepository;
 import com.rocks.zipcode.service.dto.FoodMenuDTO;
 import com.rocks.zipcode.service.mapper.FoodMenuMapper;
@@ -34,8 +35,8 @@ class FoodMenuResourceIT {
     private static final String DEFAULT_ITEM_NAME = "AAAAAAAAAA";
     private static final String UPDATED_ITEM_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_FOOD_MENU_ITEM = "AAAAAAAAAA";
-    private static final String UPDATED_FOOD_MENU_ITEM = "BBBBBBBBBB";
+    private static final FoodMenuItem DEFAULT_FOOD_MENU_ITEM = FoodMenuItem.Lunch;
+    private static final FoodMenuItem UPDATED_FOOD_MENU_ITEM = FoodMenuItem.Dinner;
 
     private static final Integer DEFAULT_QUANTITY_OF_ITEM = 1;
     private static final Integer UPDATED_QUANTITY_OF_ITEM = 2;
@@ -156,7 +157,7 @@ class FoodMenuResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(foodMenu.getId().intValue())))
             .andExpect(jsonPath("$.[*].itemName").value(hasItem(DEFAULT_ITEM_NAME)))
-            .andExpect(jsonPath("$.[*].foodMenuItem").value(hasItem(DEFAULT_FOOD_MENU_ITEM)))
+            .andExpect(jsonPath("$.[*].foodMenuItem").value(hasItem(DEFAULT_FOOD_MENU_ITEM.toString())))
             .andExpect(jsonPath("$.[*].quantityOfItem").value(hasItem(DEFAULT_QUANTITY_OF_ITEM)))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE)))
             .andExpect(jsonPath("$.[*].itemDescription").value(hasItem(DEFAULT_ITEM_DESCRIPTION)));
@@ -175,7 +176,7 @@ class FoodMenuResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(foodMenu.getId().intValue()))
             .andExpect(jsonPath("$.itemName").value(DEFAULT_ITEM_NAME))
-            .andExpect(jsonPath("$.foodMenuItem").value(DEFAULT_FOOD_MENU_ITEM))
+            .andExpect(jsonPath("$.foodMenuItem").value(DEFAULT_FOOD_MENU_ITEM.toString()))
             .andExpect(jsonPath("$.quantityOfItem").value(DEFAULT_QUANTITY_OF_ITEM))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE))
             .andExpect(jsonPath("$.itemDescription").value(DEFAULT_ITEM_DESCRIPTION));

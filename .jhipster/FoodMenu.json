@@ -11,7 +11,8 @@
     },
     {
       "fieldName": "foodMenuItem",
-      "fieldType": "String"
+      "fieldType": "FoodMenuItem",
+      "fieldValues": "Lunch,Dinner"
     },
     {
       "fieldName": "quantityOfItem",

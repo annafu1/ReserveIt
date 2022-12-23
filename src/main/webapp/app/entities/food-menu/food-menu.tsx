@@ -78,7 +78,9 @@ export const FoodMenu = () => {
                     </Button>
                   </td>
                   <td>{foodMenu.itemName}</td>
-                  <td>{foodMenu.foodMenuItem}</td>
+                  <td>
+                    <Translate contentKey={`reserveItApp.FoodMenuItem.${foodMenu.foodMenuItem}`} />
+                  </td>
                   <td>{foodMenu.quantityOfItem}</td>
                   <td>{foodMenu.price}</td>
                   <td>{foodMenu.itemDescription}</td>
