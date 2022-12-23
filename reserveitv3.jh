@@ -1,0 +1,80 @@
+application {
+config {
+authenticationType jwt,
+baseName ReserveIt,
+packageName com.rocks.zipcode,
+applicationType monolith,
+prodDatabaseType postgresql,
+clientFramework react
+}	
+entities *
+}
+
+entity FoodMenu {
+  itemName String,
+  foodMenuItem String,
+  quantityOfItem Integer,
+  Price Integer,
+  itemDescription String
+}
+
+entity Restaurant {
+    restaurantName String,
+    restaurantDescription String,
+    cuisine CuisineType,
+    streetAddress String required,
+    postalCode String required,
+    city String required,
+    state String required
+}
+
+entity RestaurantTable {
+    isReserved Boolean,
+    maxCapacity Integer,
+    status StatusTable,
+}
+
+entity Customer {
+	firstName String required,
+    lastName String required,
+    phoneNumber Integer,
+}
+
+entity Reservation {
+	numberOfPeople Integer,
+	reservationTime ZonedDateTime,
+	reservationDate LocalDate,
+}
+
+enum CuisineType {
+    Mexican, Italian, Thai, French 
+}
+
+enum StatusTable {
+    Open, In_progress, Reserved
+}
+
+relationship OneToOne {
+    Customer to User
+}
+
+relationship ManyToMany {
+	Reservation to Customer
+}
+
+relationship ManyToMany {
+	Reservation to Restaurant
+}
+
+relationship ManyToOne {
+	RestaurantTable to Restaurant
+}
+
+relationship ManyToOne {
+Restaurant to FoodMenu
+}
+dto * with mapstruct
+service * with serviceClass
+
+
+

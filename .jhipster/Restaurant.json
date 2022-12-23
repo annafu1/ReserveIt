@@ -1,0 +1,69 @@
+{
+  "applications": ["ReserveIt"],
+  "changelogDate": "20221223210740",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "restaurant",
+  "fields": [
+    {
+      "fieldName": "restaurantName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "restaurantDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cuisine",
+      "fieldType": "CuisineType",
+      "fieldValues": "Mexican,Italian,Thai,French"
+    },
+    {
+      "fieldName": "streetAddress",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Restaurant",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "foodMenu",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "foodMenu",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "restaurantTable",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "restaurantTable",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "restaurant",
+      "ownerSide": false,
+      "relationshipName": "reservation",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

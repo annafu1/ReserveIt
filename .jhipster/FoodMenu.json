@@ -1,0 +1,43 @@
+{
+  "applications": ["ReserveIt"],
+  "changelogDate": "20221223210640",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "food_menu",
+  "fields": [
+    {
+      "fieldName": "itemName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "foodMenuItem",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantityOfItem",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "itemDescription",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FoodMenu",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "foodMenu",
+      "relationshipName": "restaurant",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
