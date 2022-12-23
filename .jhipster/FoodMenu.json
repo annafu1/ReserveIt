@@ -19,7 +19,7 @@
     },
     {
       "fieldName": "price",
-      "fieldType": "Double"
+      "fieldType": "Integer"
     },
     {
       "fieldName": "itemDescription",

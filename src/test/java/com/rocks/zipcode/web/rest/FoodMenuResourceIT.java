@@ -40,8 +40,8 @@ class FoodMenuResourceIT {
     private static final Integer DEFAULT_QUANTITY_OF_ITEM = 1;
     private static final Integer UPDATED_QUANTITY_OF_ITEM = 2;
 
-    private static final Double DEFAULT_PRICE = 1D;
-    private static final Double UPDATED_PRICE = 2D;
+    private static final Integer DEFAULT_PRICE = 1;
+    private static final Integer UPDATED_PRICE = 2;
 
     private static final String DEFAULT_ITEM_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_ITEM_DESCRIPTION = "BBBBBBBBBB";
@@ -158,7 +158,7 @@ class FoodMenuResourceIT {
             .andExpect(jsonPath("$.[*].itemName").value(hasItem(DEFAULT_ITEM_NAME)))
             .andExpect(jsonPath("$.[*].foodMenuItem").value(hasItem(DEFAULT_FOOD_MENU_ITEM)))
             .andExpect(jsonPath("$.[*].quantityOfItem").value(hasItem(DEFAULT_QUANTITY_OF_ITEM)))
-            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE)))
             .andExpect(jsonPath("$.[*].itemDescription").value(hasItem(DEFAULT_ITEM_DESCRIPTION)));
     }
 
@@ -177,7 +177,7 @@ class FoodMenuResourceIT {
             .andExpect(jsonPath("$.itemName").value(DEFAULT_ITEM_NAME))
             .andExpect(jsonPath("$.foodMenuItem").value(DEFAULT_FOOD_MENU_ITEM))
             .andExpect(jsonPath("$.quantityOfItem").value(DEFAULT_QUANTITY_OF_ITEM))
-            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE))
             .andExpect(jsonPath("$.itemDescription").value(DEFAULT_ITEM_DESCRIPTION));
     }
 
