@@ -23,7 +23,7 @@
             <column name="quantity_of_item" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="price" type="double">
+            <column name="price" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="item_description" type="varchar(255)">

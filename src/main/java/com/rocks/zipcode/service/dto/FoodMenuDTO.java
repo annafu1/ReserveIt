@@ -17,7 +17,7 @@ public class FoodMenuDTO implements Serializable {
 
     private Integer quantityOfItem;
 
-    private Double price;
+    private Integer price;
 
     private String itemDescription;
 
@@ -53,11 +53,11 @@ public class FoodMenuDTO implements Serializable {
         this.quantityOfItem = quantityOfItem;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
