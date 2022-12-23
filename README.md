@@ -11,7 +11,7 @@ Customers would search for the restaurant that they would like to eat at, and th
 - (Required) Time
 - (Required) Date
 - (Required) Number of guests
-- (Required) Where they want to be seated with a table layout (Think Ticketmaster but with culinary establishments!)
+- (Required) Where they want to be seated with a table layout
 - (Required) Preordering items from the menu
 
 On the day of the reservation, patrons would receive a booking reminder of their reservation either through SMS text message or e-mail based on their profile’s selected preference. They would then have to confirm the reservation within 3 hours prior to their reservation. If the patrons do not provide a confirmation, the restaurants would reserve the right to cancel the appointment.
