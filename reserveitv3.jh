@@ -14,7 +14,7 @@ entity FoodMenu {
   itemName String,
   foodMenuItem String,
   quantityOfItem Integer,
-  Price Double,
+  Price Integer,
   itemDescription String
 }
 
