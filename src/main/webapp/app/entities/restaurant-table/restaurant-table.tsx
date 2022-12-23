@@ -52,9 +52,6 @@ export const RestaurantTable = () => {
                   <Translate contentKey="reserveItApp.restaurantTable.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="reserveItApp.restaurantTable.isReserved">Is Reserved</Translate>
-                </th>
-                <th>
                   <Translate contentKey="reserveItApp.restaurantTable.maxCapacity">Max Capacity</Translate>
                 </th>
                 <th>
@@ -74,7 +71,6 @@ export const RestaurantTable = () => {
                       {restaurantTable.id}
                     </Button>
                   </td>
-                  <td>{restaurantTable.isReserved ? 'true' : 'false'}</td>
                   <td>{restaurantTable.maxCapacity}</td>
                   <td>
                     <Translate contentKey={`reserveItApp.StatusTable.${restaurantTable.status}`} />

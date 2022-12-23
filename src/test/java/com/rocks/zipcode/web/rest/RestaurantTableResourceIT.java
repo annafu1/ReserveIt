@@ -32,9 +32,6 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class RestaurantTableResourceIT {
 
-    private static final Boolean DEFAULT_IS_RESERVED = false;
-    private static final Boolean UPDATED_IS_RESERVED = true;
-
     private static final Integer DEFAULT_MAX_CAPACITY = 1;
     private static final Integer UPDATED_MAX_CAPACITY = 2;
 
@@ -68,10 +65,7 @@ class RestaurantTableResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static RestaurantTable createEntity(EntityManager em) {
-        RestaurantTable restaurantTable = new RestaurantTable()
-            .isReserved(DEFAULT_IS_RESERVED)
-            .maxCapacity(DEFAULT_MAX_CAPACITY)
-            .status(DEFAULT_STATUS);
+        RestaurantTable restaurantTable = new RestaurantTable().maxCapacity(DEFAULT_MAX_CAPACITY).status(DEFAULT_STATUS);
         return restaurantTable;
     }
 
@@ -82,10 +76,7 @@ class RestaurantTableResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static RestaurantTable createUpdatedEntity(EntityManager em) {
-        RestaurantTable restaurantTable = new RestaurantTable()
-            .isReserved(UPDATED_IS_RESERVED)
-            .maxCapacity(UPDATED_MAX_CAPACITY)
-            .status(UPDATED_STATUS);
+        RestaurantTable restaurantTable = new RestaurantTable().maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
         return restaurantTable;
     }
 
@@ -110,7 +101,6 @@ class RestaurantTableResourceIT {
         List<RestaurantTable> restaurantTableList = restaurantTableRepository.findAll();
         assertThat(restaurantTableList).hasSize(databaseSizeBeforeCreate + 1);
         RestaurantTable testRestaurantTable = restaurantTableList.get(restaurantTableList.size() - 1);
-        assertThat(testRestaurantTable.getIsReserved()).isEqualTo(DEFAULT_IS_RESERVED);
         assertThat(testRestaurantTable.getMaxCapacity()).isEqualTo(DEFAULT_MAX_CAPACITY);
         assertThat(testRestaurantTable.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
@@ -148,7 +138,6 @@ class RestaurantTableResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(restaurantTable.getId().intValue())))
-            .andExpect(jsonPath("$.[*].isReserved").value(hasItem(DEFAULT_IS_RESERVED.booleanValue())))
             .andExpect(jsonPath("$.[*].maxCapacity").value(hasItem(DEFAULT_MAX_CAPACITY)))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
@@ -165,7 +154,6 @@ class RestaurantTableResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(restaurantTable.getId().intValue()))
-            .andExpect(jsonPath("$.isReserved").value(DEFAULT_IS_RESERVED.booleanValue()))
             .andExpect(jsonPath("$.maxCapacity").value(DEFAULT_MAX_CAPACITY))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
@@ -189,7 +177,7 @@ class RestaurantTableResourceIT {
         RestaurantTable updatedRestaurantTable = restaurantTableRepository.findById(restaurantTable.getId()).get();
         // Disconnect from session so that the updates on updatedRestaurantTable are not directly saved in db
         em.detach(updatedRestaurantTable);
-        updatedRestaurantTable.isReserved(UPDATED_IS_RESERVED).maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
+        updatedRestaurantTable.maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
         RestaurantTableDTO restaurantTableDTO = restaurantTableMapper.toDto(updatedRestaurantTable);
 
         restRestaurantTableMockMvc
@@ -204,7 +192,6 @@ class RestaurantTableResourceIT {
         List<RestaurantTable> restaurantTableList = restaurantTableRepository.findAll();
         assertThat(restaurantTableList).hasSize(databaseSizeBeforeUpdate);
         RestaurantTable testRestaurantTable = restaurantTableList.get(restaurantTableList.size() - 1);
-        assertThat(testRestaurantTable.getIsReserved()).isEqualTo(UPDATED_IS_RESERVED);
         assertThat(testRestaurantTable.getMaxCapacity()).isEqualTo(UPDATED_MAX_CAPACITY);
         assertThat(testRestaurantTable.getStatus()).isEqualTo(UPDATED_STATUS);
     }
@@ -288,7 +275,7 @@ class RestaurantTableResourceIT {
         RestaurantTable partialUpdatedRestaurantTable = new RestaurantTable();
         partialUpdatedRestaurantTable.setId(restaurantTable.getId());
 
-        partialUpdatedRestaurantTable.isReserved(UPDATED_IS_RESERVED).maxCapacity(UPDATED_MAX_CAPACITY);
+        partialUpdatedRestaurantTable.maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
 
         restRestaurantTableMockMvc
             .perform(
@@ -302,9 +289,8 @@ class RestaurantTableResourceIT {
         List<RestaurantTable> restaurantTableList = restaurantTableRepository.findAll();
         assertThat(restaurantTableList).hasSize(databaseSizeBeforeUpdate);
         RestaurantTable testRestaurantTable = restaurantTableList.get(restaurantTableList.size() - 1);
-        assertThat(testRestaurantTable.getIsReserved()).isEqualTo(UPDATED_IS_RESERVED);
         assertThat(testRestaurantTable.getMaxCapacity()).isEqualTo(UPDATED_MAX_CAPACITY);
-        assertThat(testRestaurantTable.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testRestaurantTable.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
     @Test
@@ -319,7 +305,7 @@ class RestaurantTableResourceIT {
         RestaurantTable partialUpdatedRestaurantTable = new RestaurantTable();
         partialUpdatedRestaurantTable.setId(restaurantTable.getId());
 
-        partialUpdatedRestaurantTable.isReserved(UPDATED_IS_RESERVED).maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
+        partialUpdatedRestaurantTable.maxCapacity(UPDATED_MAX_CAPACITY).status(UPDATED_STATUS);
 
         restRestaurantTableMockMvc
             .perform(
@@ -333,7 +319,6 @@ class RestaurantTableResourceIT {
         List<RestaurantTable> restaurantTableList = restaurantTableRepository.findAll();
         assertThat(restaurantTableList).hasSize(databaseSizeBeforeUpdate);
         RestaurantTable testRestaurantTable = restaurantTableList.get(restaurantTableList.size() - 1);
-        assertThat(testRestaurantTable.getIsReserved()).isEqualTo(UPDATED_IS_RESERVED);
         assertThat(testRestaurantTable.getMaxCapacity()).isEqualTo(UPDATED_MAX_CAPACITY);
         assertThat(testRestaurantTable.getStatus()).isEqualTo(UPDATED_STATUS);
     }

@@ -33,12 +33,6 @@ export const RestaurantTableDetail = () => {
           </dt>
           <dd>{restaurantTableEntity.id}</dd>
           <dt>
-            <span id="isReserved">
-              <Translate contentKey="reserveItApp.restaurantTable.isReserved">Is Reserved</Translate>
-            </span>
-          </dt>
-          <dd>{restaurantTableEntity.isReserved ? 'true' : 'false'}</dd>
-          <dt>
             <span id="maxCapacity">
               <Translate contentKey="reserveItApp.restaurantTable.maxCapacity">Max Capacity</Translate>
             </span>

@@ -17,7 +17,7 @@ public class FoodMenuDTO implements Serializable {
 
     private Integer quantityOfItem;
 
-    private Integer price;
+    private Double price;
 
     private String itemDescription;
 

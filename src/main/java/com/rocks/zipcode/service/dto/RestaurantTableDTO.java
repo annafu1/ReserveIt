@@ -12,8 +12,6 @@ public class RestaurantTableDTO implements Serializable {
 
     private Long id;
 
-    private Boolean isReserved;
-
     private Integer maxCapacity;
 
     private StatusTable status;
@@ -26,14 +24,6 @@ public class RestaurantTableDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Boolean getIsReserved() {
-        return isReserved;
-    }
-
-    public void setIsReserved(Boolean isReserved) {
-        this.isReserved = isReserved;
     }
 
     public Integer getMaxCapacity() {
@@ -86,7 +76,6 @@ public class RestaurantTableDTO implements Serializable {
     public String toString() {
         return "RestaurantTableDTO{" +
             "id=" + getId() +
-            ", isReserved='" + getIsReserved() + "'" +
             ", maxCapacity=" + getMaxCapacity() +
             ", status='" + getStatus() + "'" +
             ", restaurant=" + getRestaurant() +

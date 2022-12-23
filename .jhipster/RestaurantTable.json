@@ -6,10 +6,6 @@
   "entityTableName": "restaurant_table",
   "fields": [
     {
-      "fieldName": "isReserved",
-      "fieldType": "Boolean"
-    },
-    {
       "fieldName": "maxCapacity",
       "fieldType": "Integer"
     },

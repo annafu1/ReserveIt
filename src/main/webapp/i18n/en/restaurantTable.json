@@ -18,7 +18,6 @@
         "title": "Restaurant Table"
       },
       "id": "ID",
-      "isReserved": "Is Reserved",
       "maxCapacity": "Max Capacity",
       "status": "Status",
       "restaurant": "Restaurant"
