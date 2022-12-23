@@ -1,0 +1,11 @@
+{
+  "reserveItApp": {
+    "CuisineType": {
+      "null": "",
+      "Mexican": "Mexican",
+      "Italian": "Italian",
+      "Thai": "Thai",
+      "French": "French"
+    }
+  }
+}

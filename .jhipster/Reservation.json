@@ -1,0 +1,43 @@
+{
+  "applications": ["ReserveIt"],
+  "changelogDate": "20221223211040",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "reservation",
+  "fields": [
+    {
+      "fieldName": "numberOfPeople",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "reservationTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "reservationDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Reservation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "reservation",
+      "ownerSide": true,
+      "relationshipName": "customer",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "reservation",
+      "ownerSide": true,
+      "relationshipName": "restaurant",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

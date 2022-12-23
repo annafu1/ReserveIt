@@ -1,0 +1,36 @@
+{
+  "applications": ["ReserveIt"],
+  "changelogDate": "20221223210840",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "restaurant_table",
+  "fields": [
+    {
+      "fieldName": "isReserved",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "maxCapacity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusTable",
+      "fieldValues": "Open,In_progress,Reserved"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RestaurantTable",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "restaurantTable",
+      "relationshipName": "restaurant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

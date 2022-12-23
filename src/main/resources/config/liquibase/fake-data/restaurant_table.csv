@@ -1,0 +1,11 @@
+id;is_reserved;max_capacity;status
+1;false;73703;In_progress
+2;true;74951;Reserved
+3;true;58176;In_progress
+4;true;54606;Open
+5;false;68808;In_progress
+6;false;95681;In_progress
+7;true;79713;Open
+8;true;36773;Open
+9;true;58766;Open
+10;true;7321;Open
