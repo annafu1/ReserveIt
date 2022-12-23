@@ -24,9 +24,6 @@ public class RestaurantTable implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "is_reserved")
-    private Boolean isReserved;
-
     @Column(name = "max_capacity")
     private Integer maxCapacity;
 
@@ -51,19 +48,6 @@ public class RestaurantTable implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Boolean getIsReserved() {
-        return this.isReserved;
-    }
-
-    public RestaurantTable isReserved(Boolean isReserved) {
-        this.setIsReserved(isReserved);
-        return this;
-    }
-
-    public void setIsReserved(Boolean isReserved) {
-        this.isReserved = isReserved;
     }
 
     public Integer getMaxCapacity() {
@@ -129,7 +113,6 @@ public class RestaurantTable implements Serializable {
     public String toString() {
         return "RestaurantTable{" +
             "id=" + getId() +
-            ", isReserved='" + getIsReserved() + "'" +
             ", maxCapacity=" + getMaxCapacity() +
             ", status='" + getStatus() + "'" +
             "}";

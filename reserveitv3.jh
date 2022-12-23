@@ -14,7 +14,7 @@ entity FoodMenu {
   itemName String,
   foodMenuItem String,
   quantityOfItem Integer,
-  Price Integer,
+  Price Double,
   itemDescription String
 }
 
@@ -29,7 +29,6 @@ entity Restaurant {
 }
 
 entity RestaurantTable {
-    isReserved Boolean,
     maxCapacity Integer,
     status StatusTable,
 }
@@ -75,6 +74,3 @@ Restaurant to FoodMenu
 }
 dto * with mapstruct
 service * with serviceClass
-
-
-

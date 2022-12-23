@@ -98,14 +98,6 @@ export const RestaurantTableUpdate = () => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('reserveItApp.restaurantTable.isReserved')}
-                id="restaurant-table-isReserved"
-                name="isReserved"
-                data-cy="isReserved"
-                check
-                type="checkbox"
-              />
-              <ValidatedField
                 label={translate('reserveItApp.restaurantTable.maxCapacity')}
                 id="restaurant-table-maxCapacity"
                 name="maxCapacity"

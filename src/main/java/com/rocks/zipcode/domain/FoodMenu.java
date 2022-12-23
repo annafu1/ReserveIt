@@ -35,7 +35,7 @@ public class FoodMenu implements Serializable {
     private Integer quantityOfItem;
 
     @Column(name = "price")
-    private double price;
+    private Double price;
 
     @Column(name = "item_description")
     private String itemDescription;
@@ -103,12 +103,12 @@ public class FoodMenu implements Serializable {
         return this.price;
     }
 
-    public FoodMenu price(Integer price) {
-        this.setPrice(Double.valueOf(price));
+    public FoodMenu price(Double price) {
+        this.setPrice(price);
         return this;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
