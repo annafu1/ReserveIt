@@ -12,7 +12,7 @@ entities *
 
 entity FoodMenu {
   itemName String,
-  foodMenuItem String,
+  foodMenuItem FoodMenuItem,
   quantityOfItem Integer,
   Price Integer,
   itemDescription String
@@ -51,6 +51,10 @@ enum CuisineType {
 
 enum StatusTable {
     Open, In_progress, Reserved
+}
+
+enum FoodMenuItem {
+Lunch, Dinner
 }
 
 relationship OneToOne {
