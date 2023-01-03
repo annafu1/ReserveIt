@@ -11,6 +11,7 @@ Customers would click on the button in the homepage to reserve a table and then 
 - (Required) Time
 - (Required) Date
 - (Required) Number of guests
+- (Required) Restaurant Name
 
 ### **Features on the site coming soon:**
 
